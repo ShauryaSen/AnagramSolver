@@ -46,7 +46,6 @@ public class AnagramSolver {
                 // compare the two char arrays
                 if (Arrays.equals(stringChars, lineChars)) {
                     words.add(line);
-                    totalWords++;
                 }
 
             }
@@ -57,13 +56,18 @@ public class AnagramSolver {
         }
 
         // Display the words
-        System.out.println("\nNumber of words possible to make: " + totalWords);
-        System.out.println("All possible words:");
-
-        for (String word : words) {
-            System.out.println(word);
+        if (words.size() == 1 || words.size() == 0) {
+            System.out.println("Sorry there are no words in the dictionary that is an anagram of that string");
+        } else {
+            System.out.println("All possible words:");
+            for (String word : words) {
+                if (!word.equals(string)) {
+                    System.out.println(word);
+                    totalWords++;
+                }
+            }
+            System.out.println("Number of words generated: " + totalWords);
         }
-
     }
 
 }
